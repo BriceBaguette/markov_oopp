@@ -1,5 +1,5 @@
 {
-  "C_Cpp.errorSquiggles": "enabled",
+  "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
     "xstring": "cpp",
     "atomic": "cpp",
@@ -47,6 +47,31 @@
     "xstddef": "cpp",
     "xtr1common": "cpp",
     "xtree": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "sstream": "cpp",
+    "optional": "cpp",
+    "ratio": "cpp",
+    "array": "cpp",
+    "functional": "cpp",
+    "*.tcc": "cpp",
+    "unordered_map": "cpp",
+    "string_view": "cpp",
+    "cstdarg": "cpp",
+    "cwctype": "cpp",
+    "bitset": "cpp",
+    "chrono": "cpp",
+    "complex": "cpp",
+    "condition_variable": "cpp",
+    "deque": "cpp",
+    "vector": "cpp",
+    "algorithm": "cpp",
+    "memory_resource": "cpp",
+    "numeric": "cpp",
+    "random": "cpp",
+    "fstream": "cpp",
+    "iomanip": "cpp",
+    "mutex": "cpp",
+    "thread": "cpp",
+    "cinttypes": "cpp"
   }
 }

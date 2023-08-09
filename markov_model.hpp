@@ -3,6 +3,7 @@
 #include <string>
 #include <stdexcept>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
 typedef set<char> Alphabet;
@@ -32,7 +33,7 @@ Alphabet makeAlphabet(std::string data);
 Function that takes as input the alphabet from markov model and the data we build markov model on
 and return the model
 */
-Model makeModel(std::string data, Alphabet alphabet, int order);
+Model makeModel(std::string data, unsigned int order);
 
 /*
 Function that computes laplace probabilities given a model and an input data.
