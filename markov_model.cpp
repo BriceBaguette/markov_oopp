@@ -79,10 +79,12 @@ double laplace(const Markov_model &markov_model, const std::string &string)
 {
     double numerator = 1;
     double denominator = static_cast<double>(markov_model.alphabet.size());
-    if(markov_model.model.find(string) != markov_model.model.end()){
+    if (markov_model.model.find(string) != markov_model.model.end())
+    {
         numerator = static_cast<double>(markov_model.model.find(string)->second + 1);
     }
-    if(markov_model.model.find(string.substr(0, string.length() - 1)) != markov_model.model.end()){
+    if (markov_model.model.find(string.substr(0, string.length() - 1)) != markov_model.model.end())
+    {
         denominator += static_cast<double>(markov_model.model.find(string.substr(0, string.length() - 1))->second);
     }
     double value = numerator / denominator;
@@ -92,16 +94,16 @@ double laplace(const Markov_model &markov_model, const std::string &string)
 double likelihood(Markov_model &markov_model, const std::string &string)
 {
     unsigned int order = markov_model.order;
+    if (string.length() < order + 1)
+    {
+        throw std::length_error("model and input data are incompatible");
+    }
     for (unsigned int i = 0; i < string.length(); i++)
     {
         if (markov_model.alphabet.find(string[i]) == markov_model.alphabet.end())
         {
             throw std::domain_error("input data contains symbols not in the model");
         }
-    }
-    if (string.length() < order + 1)
-    {
-        throw std::length_error("model and input data are incompatible");
     }
     double likelihood = 0;
     for (unsigned int i = 0; i < string.length(); i++)

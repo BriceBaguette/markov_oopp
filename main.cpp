@@ -34,30 +34,34 @@ int main(int argc, char const *argv[])
             std::string modelName;
             std::getline(inputFile, modelName);
             std::string line;
-            while(std::getline(inputFile, line)){
+            while (std::getline(inputFile, line))
+            {
                 trainingData += line;
             }
             Markov_model *model = new Markov_model();
             markov_model(*model, std::stoi(argv[1]), trainingData);
             try
             {
-            double modelLikelihood = likelihood(*model, testingData);
-            cout << modelName << ": " << modelLikelihood << "\n";
-            if(modelLikelihood < bestLikelihood){
-                bestModel = modelName;
-                bestLikelihood = modelLikelihood;
+                double modelLikelihood = likelihood(*model, testingData);
+                cout << modelName << ": " << modelLikelihood << "\n";
+                if (modelLikelihood < bestLikelihood)
+                {
+                    bestModel = modelName;
+                    bestLikelihood = modelLikelihood;
+                }
             }
-            }
-            catch(const std::exception& e)
+            catch (const std::exception &e)
             {
-            cout << modelName << ": -\n";
+                cout << modelName << ": -\n";
             }
         }
-        if(bestModel.empty()){
+        if (bestModel.empty())
+        {
             cout << argv[j] << " attributed to - \n";
         }
-        else{
-             cout << argv[j] << " attributed to " << bestModel << "\n";
+        else
+        {
+            cout << argv[j] << " attributed to " << bestModel << "\n";
         }
     }
     return 0;
